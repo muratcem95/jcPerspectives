@@ -3,6 +3,7 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
+const hbs = require('hbs');
 const nodemailer = require('nodemailer');
 
 const viewsPath = path.join(__dirname, '../views');
@@ -18,16 +19,15 @@ const transporter = nodemailer.createTransport({
 });
 
 app.set('views', viewsPath);  
-
-app.get('/', (req, res) => {
-    res.redirect('/home');
-});
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
 
 app.use(express.static(viewsPath));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile('index.html');
 });
 
+server.listen(port, () => console.log(`Server is up on port ${port}`));
