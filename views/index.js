@@ -2,11 +2,11 @@ var userFeed = new Instafeed({
     get: 'user',
     userId: '10690061576',
 //    limit: 12,
-    resolution: 'standard_resolution',
-//    resolution: 'thumbnail',
+//    resolution: 'standard_resolution',
+    resolution: 'thumbnail',
     accessToken: '10690061576.1677ed0.949908866ee542aeaba6709318c26900',
     sortBy: 'most-recent',
-    template: '<div class="col-lg-3 gallery"><a href="{{link}}" title="{{caption}}" target="_blank"><img src="{{image}}" alt="{{caption}}" class="img-fluid instaImg" style="border: 3px solid grey; border-radius: 3px;"/></a></div>'
+    template: '<div class="col-lg-3 gallery"><a href="{{link}}" title="{{caption}}" target="_blank"><img src="{{image}}" alt="{{caption}}" class="img-fluid instaImg"/></a></div>'
 });
 userFeed.run();
 
