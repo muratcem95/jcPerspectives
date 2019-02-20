@@ -7,12 +7,28 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+        <link rel="stylesheet" href="magnific.css">
 
         <title>JC Perspectives</title>
         
         <style type="text/css">
             body {
                 font-family: 'Satisfy', cursive;
+            }
+            .instaImg {
+                margin-bottom: 30px;
+                margin-top: 50px;
+            }
+            .instaImg:hover {
+                opacity: 0.8;
+                -moz-opacity: 0.8;
+                -webkit-opacity: 0.8;
+            }
+            #modalTitle {
+                color: #7EFDD0;
+            }
+            .modal-footer {
+                display: none;
             }
         </style>
     </head>
@@ -30,63 +46,59 @@
                             Follow My Journey
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="https://www.instagram.com/jc_perspectives/">Instagram</a>
+                            <a class="dropdown-item" href="https://www.instagram.com/jc_perspectives/">On Instagram</a>
                             <hr>
-                            <a class="dropdown-item" href="https://justagirloutthere.wixsite.com/diveinwithme">My Blog</a>
+                            <a class="dropdown-item" href="https://justagirloutthere.wixsite.com/diveinwithme">On My Blog</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Me</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#contactModal" href="">Contact Me</a>
                     </li>
                 </ul>
             </div>
         </nav>
         
-        <div id="instafeed"></div>
+        <div class="container text-center">
+            <h1 style="margin-top: 50px;">Designs By JC</h1>
+            <div id="instafeed" class="row"></div>
+        </div>    
         
-<!--
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="..." class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
+        <!-- Modal -->
+        <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle">Contact Me</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="contactForm" method="post" action="/contact">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email address" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" name="message" rows="3" placeholder="What would you like to share?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <h5>Thank you for contacting me :)</h5>
+                        <p>I will for sure get back to you as soon as I can!</p>
+                    </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
--->
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="insta.js"></script>
-        
-        <script type="text/javascript">
-            var feed = new Instafeed({
-                get: 'tagged',
-                tagName: 'awesome',
-                clientId: 'YOUR_CLIENT_ID'
-            });
-            feed.run();
-        </script>
+        <script src="instafeed.min.js"></script>
+        <script src="magnific.min.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>

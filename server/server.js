@@ -30,4 +30,51 @@ app.get('/', (req, res) => {
     res.sendFile('index.html');
 });
 
+app.post('/contact', (req, res) => {
+    // setup email data with unicode symbols
+    let mailOptions = {
+        from: 'muratcem95@gmail.com', // sender address
+        to: "muratcem95@gmail.com", // list of receivers
+        subject: `JC Perspectives Contact: ${req.body.email}`, // Subject line
+        html: `<b>message:</b><br>${req.body.message}` // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        };
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 server.listen(port, () => console.log(`Server is up on port ${port}`));
